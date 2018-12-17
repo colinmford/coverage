@@ -50,7 +50,7 @@ def decomposeRemoveOverlapFactory(glyph, font=None):
     #     no overlap
     # in other words, a very very very basic shape of this glyph
     if font is None:
-        font = glyph.getParent()
+        font = glyph.font
     new = Glyph()
     p = new.getPointPen()
     tp = DecomposePointPen(font, p)
@@ -74,7 +74,7 @@ def calculateGlyphCoverage(glyph, font=None, cache=None):
     if glyph.width == 0:
         return 0
     if font is None:
-        font = glyph.getParent()
+        font = glyph.font
         if font is None:
             return 0
     if font.info.unitsPerEm == 0:
